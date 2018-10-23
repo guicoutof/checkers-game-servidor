@@ -1,3 +1,4 @@
+package rooms;
 
 public class Room {
 	private Player player1 = null;

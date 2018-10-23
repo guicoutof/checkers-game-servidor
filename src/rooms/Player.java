@@ -1,3 +1,4 @@
+package rooms;
 import java.net.InetAddress;
 
 public class Player {

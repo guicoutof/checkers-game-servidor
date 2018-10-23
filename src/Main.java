@@ -6,6 +6,10 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import rooms.Player;
+import rooms.Room;
+import rooms.Rooms;
+
 public class Main {
 	private static int port = 9999;
 	private static Rooms rooms = new Rooms();
