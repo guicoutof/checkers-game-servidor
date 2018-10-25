@@ -90,6 +90,8 @@ public class Main {
         	r.checkStatus();
         	if(r.getStatus()==2) {
         		String newsentence = "12\n";
+        		newsentence += r.getPlayer1().getNick()+"\n";
+        		newsentence += r.getPlayer2().getNick()+"\n";
                 sendData = newsentence.getBytes();
                 DatagramPacket sendPacket = new DatagramPacket (sendData,sendData.length,r.getPlayer1().getIp(),r.getPlayer1().getPort());
                 try {
