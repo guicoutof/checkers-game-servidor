@@ -78,6 +78,13 @@ public class Main {
         		
         	}
         	break; 
+        default:
+        	Player player = rooms.buscarAdversario(portReceive);	
+        	if(player!=null) {
+        		sendData = receivePacket.getData();
+        		DatagramPacket sendPacket = new DatagramPacket (sendData,sendData.length,player.getIp(),player.getPort());
+        	}
+        	break;
         }
         
 	}
