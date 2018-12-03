@@ -23,6 +23,9 @@ public class Rooms {
 		Rooms = rooms;
 	}
 
+	/***
+	 * Adiciona um player a proxima sala que possui 1 player ou há uma sala vazia
+	 */
 	public void addPlayer(Player player) {
 		for(int i = 0;i<Rooms.size();i++) {
 			Rooms.get(i).checkStatus();
@@ -38,6 +41,11 @@ public class Rooms {
 		Rooms.add(room);
 	}
 	
+	/***
+	 * Procura o oponente correspondente ao player que enviou um pacote ao servidor
+	 * @param port porta pertencente ao player que emitiu o pacote
+	 * @return returna o Player adversario
+	 */
 	public Player buscarAdversario(int port) {
 		for(Room r: Rooms) {
 			if(r.getPlayer1().getPort()==port)return r.getPlayer2();
@@ -46,6 +54,11 @@ public class Rooms {
 		return null;	
 	}
 	
+	/***
+	 * Verifica se um Player pode utilizar seu determinado Nick ou já está em uso
+	 * @param player
+	 * @return falso se o Nick ja estiver em uso <br> true se o Nick é permitido
+	 */
 	public boolean verificaPlayer(Player player) {
 		for(Room r: Rooms) {
 			if(r.getPlayer1() != null && r.getPlayer1().getNick().equals(player.getNick()))return false;

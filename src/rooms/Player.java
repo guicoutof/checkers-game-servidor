@@ -1,6 +1,10 @@
 package rooms;
 import java.net.InetAddress;
-
+/***
+ * Classe que obtem as informações de um Player
+ * @author Guilherme Couto
+ *
+ */
 public class Player {
 	private String nick;
     private InetAddress ip;

@@ -1,10 +1,17 @@
 package rooms;
 
+/***
+ * Classe que define uma sala
+ * @author Guilherme Couto
+ *
+ */
 public class Room {
 	private Player player1 = null;
 	private Player player2 = null;
 	private int status = 0;
-	
+	// status 0 significa que esta vazia
+	// status 1 significa que há um player
+	// status 2 significa que a sala possui 2 players prontos para jogar
 	public Room() {
 		
 	}

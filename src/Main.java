@@ -43,6 +43,13 @@ public class Main {
 
 	}
 	
+	/***
+	 * Tratamento da mensagem recebida pelo socket
+	 * 
+	 * @param receivePacket pacote UDP
+	 * @param serverSocket Socket do servidor
+	 */
+	
 	public static void tratarMensagem(DatagramPacket receivePacket,DatagramSocket serverSocket) throws IOException{
         String sentence = new String(receivePacket.getData());
         InetAddress IPAddress = receivePacket.getAddress();
@@ -83,11 +90,18 @@ public class Main {
         	if(player!=null) {
         		sendData = receivePacket.getData();
         		DatagramPacket sendPacket = new DatagramPacket (sendData,sendData.length,player.getIp(),player.getPort());
+        		serverSocket.send(sendPacket);
         	}
         	break;
         }
         
 	}
+	
+	/***
+	 * Verifica se há uma sala pronta, <br> se houver é enviado um pacote para ambos os players para abertura da sala
+	 * @param receivePacket pacote UDP
+	 * @param serverSocket socket do Servidor
+	 */
 	
 	public static void salaPronta(DatagramPacket receivePacket,DatagramSocket serverSocket) {
 		InetAddress IPAddress;
