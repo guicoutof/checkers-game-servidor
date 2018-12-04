@@ -24,7 +24,7 @@ public class Main {
 			e.printStackTrace();
 		} 	        
         while(true){
-            byte[]receiveData = new byte[8300];
+            byte[]receiveData = new byte[62000];
             DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
             System.out.println("Aguardando pacote...");
             try {
@@ -54,8 +54,9 @@ public class Main {
         String sentence = new String(receivePacket.getData());
         InetAddress IPAddress = receivePacket.getAddress();
         int portReceive = receivePacket.getPort();
-        byte[] sendData = new byte[1024];
-     
+        byte[] sendData = new byte[sentence.length()];
+        System.out.println("Sentence lenghth: "+sentence.length());
+        
         switch(sentence.charAt(0)){
         case '1': //conectar em uma partida
         	if(sentence.charAt(1) == '0'){ //pedido de login
